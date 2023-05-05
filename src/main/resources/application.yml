@@ -30,3 +30,7 @@ spring:
   batch:
     jdbc:
       initialize-schema: always
+    job:
+      enabled: false
+  main:
+    allow-bean-definition-overriding: true
