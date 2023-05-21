@@ -9,12 +9,12 @@ import org.springframework.context.annotation.ComponentScans;
 import org.springframework.context.annotation.Import;
 
 @SpringBootApplication
-@ComponentScan(basePackages = {"com.lee.springbatch.executioncontext"})
+// @ComponentScan(basePackages = {"com.lee.springbatch.executioncontext"})
+@ComponentScan(basePackages = {"com.lee.springbatch.jobrepository"})
 @EnableBatchProcessing
 public class SpringBatchApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(SpringBatchApplication.class, args);
     }
-
 }
