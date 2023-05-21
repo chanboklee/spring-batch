@@ -31,6 +31,6 @@ spring:
     jdbc:
       initialize-schema: always
     job:
-      enabled: true
+      enabled: false
   main:
     allow-bean-definition-overriding: true
