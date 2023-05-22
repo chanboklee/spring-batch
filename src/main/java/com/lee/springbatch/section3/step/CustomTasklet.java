@@ -1,4 +1,4 @@
-package com.lee.springbatch.step;
+package com.lee.springbatch.section3.step;
 
 import org.springframework.batch.core.StepContribution;
 import org.springframework.batch.core.scope.context.ChunkContext;

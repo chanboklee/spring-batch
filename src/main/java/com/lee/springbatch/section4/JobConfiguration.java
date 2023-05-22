@@ -1,8 +1,7 @@
-package com.lee.springbatch.jobrepository;
+package com.lee.springbatch.section4;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.batch.core.Job;
-import org.springframework.batch.core.JobExecutionListener;
 import org.springframework.batch.core.Step;
 import org.springframework.batch.core.StepContribution;
 import org.springframework.batch.core.configuration.annotation.JobBuilderFactory;
@@ -15,18 +14,16 @@ import org.springframework.context.annotation.Configuration;
 
 @RequiredArgsConstructor
 @Configuration
-public class JobRepositoryConfiguration {
+public class JobConfiguration {
 
     private final JobBuilderFactory jobBuilderFactory;
     private final StepBuilderFactory stepBuilderFactory;
-    private final JobExecutionListener jobRepositoryListener;
 
     @Bean
-    public Job batchJob(){
-        return jobBuilderFactory.get("batchJob")
+    public Job job(){
+        return jobBuilderFactory.get("batchJob1")
                 .start(step1())
                 .next(step2())
-                .listener(jobRepositoryListener)
                 .build();
     }
 
@@ -36,6 +33,7 @@ public class JobRepositoryConfiguration {
                 .tasklet(new Tasklet() {
                     @Override
                     public RepeatStatus execute(StepContribution contribution, ChunkContext chunkContext) throws Exception {
+                        System.out.println("step1 was executed");
                         return RepeatStatus.FINISHED;
                     }
                 })
@@ -45,7 +43,13 @@ public class JobRepositoryConfiguration {
     @Bean
     public Step step2() {
         return stepBuilderFactory.get("step2")
-                .tasklet((contribution, chunkContext) -> null)
+                .tasklet(new Tasklet() {
+                    @Override
+                    public RepeatStatus execute(StepContribution contribution, ChunkContext chunkContext) throws Exception {
+                        System.out.println("step2 was executed");
+                        return RepeatStatus.FINISHED;
+                    }
+                })
                 .build();
     }
 }

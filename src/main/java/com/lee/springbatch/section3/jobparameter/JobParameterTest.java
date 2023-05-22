@@ -1,4 +1,4 @@
-package com.lee.springbatch.jobparameter;
+package com.lee.springbatch.section3.jobparameter;
 
 import org.springframework.batch.core.Job;
 import org.springframework.batch.core.JobParameters;

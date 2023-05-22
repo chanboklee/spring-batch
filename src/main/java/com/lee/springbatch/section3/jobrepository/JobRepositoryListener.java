@@ -1,4 +1,4 @@
-package com.lee.springbatch.jobrepository;
+package com.lee.springbatch.section3.jobrepository;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.batch.core.*;

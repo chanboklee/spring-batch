@@ -20,7 +20,6 @@ spring:
   config:
     activate:
       on-profile: mysql
-
   datasource:
     hikari:
       jdbc-url: jdbc:mysql://localhost:3306/springbatch?useUnicode=true&characterEncoding=utf8
@@ -31,6 +30,7 @@ spring:
     jdbc:
       initialize-schema: always
     job:
-      enabled: false
+      enabled: true
+      names: ${job.name:NONE}
   main:
     allow-bean-definition-overriding: true
